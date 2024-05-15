@@ -65,19 +65,24 @@
                </div>
             </nav>
          </div>
-         <script type="text/javascript">
-            (function(d, t) {
-                var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-                v.onload = function() {
-                  window.voiceflow.chat.load({
-                    verify: { projectID: '662a6318fc08cf2d1430c50d' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production'
-                  });
+        <script type="text/javascript">
+    (function(d, t) {
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function() {
+            window.voiceflow.chat.load({
+                verify: { projectID: '662a6318fc08cf2d1430c50d' },
+                url: 'https://general-runtime.voiceflow.com',
+                versionID: 'production',
+                success: function() {
+                    // Proactive message code goes here
+                    window.voiceflow.chat.proactive.push({ type: 'text', payload: { message: 'hello world' } });
                 }
-                v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-            })(document, 'script');
-          </script>
+            });
+        }
+        v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+    })(document, 'script');
+</script>
+
 
          <!-- banner section start --> 
          <div class="banner_section layout_padding">
